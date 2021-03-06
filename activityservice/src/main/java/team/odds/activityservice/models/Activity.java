@@ -1,10 +1,8 @@
 package team.odds.activityservice.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Activity {
     private Integer id;
     private String name;
