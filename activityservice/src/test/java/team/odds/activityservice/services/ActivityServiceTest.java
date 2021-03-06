@@ -2,12 +2,9 @@ package team.odds.activityservice.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 import team.odds.activityservice.models.Activity;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ActivityServiceTest {
     @Test
