@@ -34,4 +34,8 @@ public class ActivityService {
 
         return activityRepository.findAll();
     }
+
+    public List<Activity> getByUser(String username) {
+        return activityRepository.findActivitiesByUser(username);
+    }
 }
