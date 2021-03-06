@@ -1,6 +1,7 @@
 package team.odds.activityservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import team.odds.activityservice.models.Activity;
 import team.odds.activityservice.repositories.ActivityRepository;
@@ -36,7 +37,15 @@ public class ActivityService {
     }
 
     public List<Activity> getByUser(String username) {
+//        1: @Query
 //        return activityRepository.findActivitiesByUser(username);
-        return activityRepository.findAllByCreatedBy(username);
+//        2: JPQL
+//        return activityRepository.findAllByCreatedBy(username);
+//        3: Example
+        Activity activity = Activity.builder()
+                .createdBy(username)
+                .build();
+        Example<Activity> example = Example.of(activity);
+        return activityRepository.findAll(example);
     }
 }
