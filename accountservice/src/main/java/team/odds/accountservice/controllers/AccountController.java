@@ -1,5 +1,6 @@
 package team.odds.accountservice.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +14,13 @@ import java.util.List;
 
 @RestController
 public class AccountController {
+    @Autowired
+    private ActivityService activityService;
+
     @PostMapping(value = "/accounts/activities")
     public ResponseEntity<List<ActivityResponseModel>> getAccountActivities(@RequestBody AccountRequestModel account) {
-        ActivityService activityService = new ActivityService();
-        List<ActivityResponseModel> activities = activityService.getActivitiesOf(account);
+//        List<ActivityResponseModel> activities = activityService.getActivitiesOf(account);
+        List<ActivityResponseModel> activities = activityService.getActivitiesByFeignOf(account);
         return ResponseEntity.ok().body(activities);
     }
 }
