@@ -36,6 +36,7 @@ public class ActivityService {
     }
 
     public List<Activity> getByUser(String username) {
-        return activityRepository.findActivitiesByUser(username);
+//        return activityRepository.findActivitiesByUser(username);
+        return activityRepository.findAllByCreatedBy(username);
     }
 }

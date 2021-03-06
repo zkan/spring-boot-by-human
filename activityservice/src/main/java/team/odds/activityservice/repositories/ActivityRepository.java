@@ -11,4 +11,6 @@ import java.util.List;
 public interface ActivityRepository extends JpaRepository<Activity, Integer> {
     @Query("select a from Activity a where a.createdBy=?1")
     List<Activity> findActivitiesByUser(String username);
+
+    List<Activity> findAllByCreatedBy(String username);
 }
